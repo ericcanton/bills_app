@@ -1,0 +1,8 @@
+"name","company","dom","cost","freq"
+"Phone","Carrier",11,"140.31","month"
+"Internet","MyISP",21,"49.99","month"
+"Electricity","Energy Company ",2,"Variable","month"
+"Auto Loan","Credit Union",7,"300.42","month"
+"Auto Insurance ","Local Ag",8,"59.97","month"
+"Renter's Insurance","Local Ag",8,"8.67","month"
+"Credit Card","Green Card",7,"Variable","month"
