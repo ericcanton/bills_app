@@ -17,8 +17,8 @@ This section describes one way to serve this app to your local network; be caref
 > install.packages("shiny", "shinyWidgets", "data.table", "DT", "lubridate")
 ```
 
-2. Find your computer's router IP address. If you're running a modern Debian-based Linux (e.g. Debian, Ubuntu), you can do this via the `ip address` command.
-On Mac and some other Unixes, try `ifconfig`. These commands will give an output listing your network interfaces and their configurations. The `lo` interface is your `localhost` (IP address `127.0.0.1`), but your router IP will be some other interface later in the list. For example, you might see `eno1` for an ethernet connection to your router, or `wlp2s0` for a wireless connection. Supposing we are connected via ethernet, we are looking for something like:
+2. Find your computer's subnet IP address (on your router). If you're running a modern Debian-based Linux (e.g. Debian, Ubuntu), you can do this via the `ip address` command.
+On Mac and some other Unixes, try `ifconfig`. These commands will give an output listing your network interfaces and their configurations. The `lo` interface is your `localhost` (IP address `127.0.0.1`), but your subnet IP will be some other interface later in the list. For example, you might see `eno1` for an ethernet connection to your router, or `wlp2s0` for a wireless connection. Supposing we are connected via ethernet, we are looking for something like:
 ```bash
 4: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 44:39:c4:54:b9:1a brd ff:ff:ff:ff:ff:ff
@@ -28,9 +28,9 @@ On Mac and some other Unixes, try `ifconfig`. These commands will give an output
     inet6 fe80::4639:c4ff:fe54:b91a/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-The `inet 192.168.0.123/24` line is what we're looking for, and tells us our machine's router IP is `192.168.0.123`.
+The `inet 192.168.0.123/24` line is what we're looking for, and tells us our machine's IP is `192.168.0.123`.
 
-3. From a running R console (maybe the one from step 1) navigate to the `bills_app` directory (containing `app.R`) using `setwd("path/to/bills_app")`, then start the Shiny app on our router IP address and port 2000 using:
+3. From a running R console (maybe the one from step 1) navigate to the `bills_app` directory (containing `app.R`) using `setwd("path/to/bills_app")`, then start the Shiny app on our IP address, and port 2000, using:
 ```R
 runApp(host = "192.168.0.123", port=2000)
 ```
